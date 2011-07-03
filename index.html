@@ -1,0 +1,25 @@
+<!DOCTYPE script PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+	<head>
+		<script>
+			var socket = new WebSocket("ws://localhost:8080/");
+			socket.onmessage = function(message){
+				//alert(message.data);
+			}
+			
+			function acendeLuz(){
+				socket.send(1);
+			}
+			
+			function apagaLuz(){
+				socket.send(0);
+			}
+		
+		</script>
+	</head>
+	<body style="background: gray;">
+		<button onclick="acendeLuz()" value="Teste" name="Teste">Acende</button>
+		<button onclick="apagaLuz()" value="Teste" name="Teste">Apaga</button>
+	</body>
+</html>
